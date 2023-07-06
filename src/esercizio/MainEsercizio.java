@@ -30,9 +30,10 @@ public class MainEsercizio {
 			System.out.println("-------------------------------------------------------------------------------");
 		}
 
-		// -------------------------ESERCIZIO 2
-
+//-------------------------------------------------------------ESERCIZIO 2-----------------------------------------------------------------------
+		System.out.println("");
 		System.out.println("ESERCIZIO 2");
+		System.out.println("");
 		List<Product> babyProducts = new ArrayList<>();
 		babyProducts.add(new Product(rndm.nextLong(), "BIBERON", "Baby", 10));
 		babyProducts.add(new Product(rndm.nextLong(), "PANNOLINI", "Baby", 20));
@@ -56,5 +57,36 @@ public class MainEsercizio {
 			System.out.println("DATA SPEDIZIONE: " + ord.getDeliveryDate());
 
 		}
+
+//-------------------------------------------------------------ESERCIZIO 3-----------------------------------------------------------------------
+
+		System.out.println("");
+		System.out.println("ESERCIZIO 3");
+		System.out.println("");
+		List<Product> boysProducts = new ArrayList<>();
+		boysProducts.add(new Product(rndm.nextLong(), "COMPUTER", "Boys", 700));
+		boysProducts.add(new Product(rndm.nextLong(), "TELEVISORE", "Boys", 800));
+		boysProducts.add(new Product(rndm.nextLong(), "CELLULARE", "Boys", 500));
+
+		List<Product> filtraProdottiBoys = boysProducts.stream().filter(b -> b.getCategory().equals("Boys")).map(b -> {
+			double sconto = b.getPrice() * 0.9;
+			b.setPrice(sconto);
+			return b;
+		}).collect(Collectors.toList());
+
+		for (Product prodotto : filtraProdottiBoys) {
+			System.out.println("PRODOTTO: " + prodotto.getName());
+			System.out.println("NUMERO ID: " + prodotto.getId());
+			System.out.println("CATEGORIA: " + prodotto.getCategory());
+			System.out.println("PREZZO: " + prodotto.getPrice() / 0.9);
+			System.out.println("PREZZO SCONTATO: " + prodotto.getPrice());
+			System.out.println("--------------------------------");
+		}
+
+//-------------------------------------------------------------ESERCIZIO 4-----------------------------------------------------------------------		
+
+		System.out.println("");
+		System.out.println("ESERCIZIO 4");
+		System.out.println("");
 	}
 }
